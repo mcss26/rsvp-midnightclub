@@ -88,11 +88,13 @@
     if (!data.ok) {
       setMsg(data.msg || 'No encontrado.');
       guestInfo.textContent = '';
-      renderSlots([]);
+      renderSlots([]);           // limpia slots y deshabilita confirmar
       btnConfirm.disabled = true;
-      guestBlock.hidden = false;
+      guestBlock.hidden = false; // MOSTRAR el bloque para que se vea el mensaje
       return;
     }
+
+    
 
   
 

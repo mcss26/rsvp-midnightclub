@@ -85,11 +85,16 @@
       const res = await fetch(url);
       const data = await res.json();
 
-      if (!data.ok) {
-        setMsg(data.msg || 'No encontrado.');
-        guestBlock.hidden = true;
-        return;
-      }
+    if (!data.ok) {
+      setMsg(data.msg || 'No encontrado.');
+      guestInfo.textContent = '';
+      renderSlots([]);
+      btnConfirm.disabled = true;
+      guestBlock.hidden = false;
+      return;
+    }
+
+  
 
       guestInfo.textContent = `${data.nombre} — Estado: ${data.estado || 'Invitado'}`;
       renderSlots(data.slots || []);

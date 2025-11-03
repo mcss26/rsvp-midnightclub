@@ -87,12 +87,17 @@
 
     if (!data.ok) {
       setMsg(data.msg || 'No encontrado.');
-      guestInfo.textContent = '';
-      renderSlots([]);           // limpia slots y deshabilita confirmar
+      guestInfo.textContent = `${data.nombre} — Estado: ${data.estado || 'Invitado'}`;
+      renderSlots(data.slots || []);
+      codeEl.disabled = false;
+      telEl.disabled = false;
+      guestBlock.hidden = false;
+      codeEl.focus();
       btnConfirm.disabled = true;
-      guestBlock.hidden = false; // MOSTRAR el bloque para que se vea el mensaje
+      guestBlock.hidden = false; // mostramos el mensaje
       return;
     }
+
 
     
 

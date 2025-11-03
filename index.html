@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Midnight Club — RSVP</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <noscript style="color:#fff; background:#c00; padding:8px; display:block; text-align:center;">
+    Necesitás habilitar JavaScript para confirmar tu asistencia.
+  </noscript>
+
+  <div class="wrap">
+    <main class="card" role="main">
+      <div class="header">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="title">RSVP — Midnight Club</div>
+      </div>
+
+      <form id="rsvpForm" class="form" autocomplete="one-time-code">
+        <div>
+          <label for="uid">MemberID</label>
+          <input id="uid" class="input" name="uid" type="text" placeholder="Ej: MC0001" required />
+          <div class="helper">Ingresá tu ID tal cual figura en la invitación.</div>
+        </div>
+
+        <button id="btn-check" class="btn btn-cta" type="button">Buscar invitación</button>
+
+        <div id="guestBlock" hidden>
+          <div class="helper" id="guestInfo"></div>
+
+          <div class="row two">
+            <div>
+              <label for="code">Código</label>
+              <input id="code" class="input" name="code" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="4–6 dígitos" required />
+            </div>
+            <div>
+              <label for="tel">Teléfono (requerido)</label>
+              <input id="tel" class="input" name="tel" type="tel" placeholder="Ej: 54911XXXXXXXX" required />
+            </div>
+          </div>
+
+          <div>
+            <label>Elegí franja</label>
+            <div id="slots" class="slots" role="radiogroup" aria-label="Franjas disponibles"></div>
+            <input type="hidden" id="slot" name="slot" />
+          </div>
+
+          <button id="btn-confirm" class="btn btn-cta" type="button" disabled>Confirmar asistencia</button>
+
+          <div id="msg" class="msg" aria-live="polite"></div>
+          <div id="qr" class="qr" hidden></div>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="tools/theme_check.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
 <!-- MC RSVP placeholder -->

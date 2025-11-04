@@ -1,135 +1,56 @@
-/* MC — estilos base (usa variables de tokens.css) */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body{
-  margin: 0;
-  font-family: var(--mc-font);
-  color: var(--mc-text);
-  background: var(--mc-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Base */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.5}
+.wrap{max-width:var(--container);margin:0 auto;padding:var(--sp-6) var(--sp-4)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:var(--sp-6)}
+.header{display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4)}
+.logo{width:28px;height:28px;border-radius:50%;background:linear-gradient(45deg,#6b21a8,transparent), var(--surface2);border:1px solid var(--border)}
+.title{font-weight:700;font-size:var(--fs-xl)}
+.helper{color:var(--muted);font-size:var(--fs-sm)}
 
-.wrap{
-  min-height: 100%;
-  display: grid;
-  place-items: center;
-  padding: var(--space-5);
-}
+/* Form */
+.form{display:grid;gap:var(--sp-4)}
+.row.two{display:grid;gap:var(--sp-4)}
+@media (min-width:640px){.row.two{grid-template-columns:1fr 1fr}}
 
-.card{
-  width: 100%;
-  max-width: var(--mc-maxw);
-  background: var(--mc-surface);
-  border: 1px solid var(--mc-border);
-  border-radius: var(--mc-radius);
-  box-shadow: var(--mc-shadow);
-  padding: calc(var(--space-6) + 2px);
+label{display:block;margin-bottom:var(--sp-2);font-weight:600}
+.input{
+  width:100%;background:var(--surface2);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--r-sm);padding:12px;font-size:var(--fs-md);
+  outline:none;transition:box-shadow .2s,border-color .2s
 }
+.input::placeholder{color:var(--muted)}
+.input:focus{border-color:var(--focus);box-shadow:0 0 0 2px var(--focus)}
 
-.header{
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-5);
-}
-.logo{
-  width: 28px; height: 28px; border-radius: 8px;
-  background: linear-gradient(135deg, #111, #222 55%, #000);
-  border: 1px solid var(--mc-border);
-}
-.title{ font-size: 1.25rem; font-weight: 600; letter-spacing: .3px; }
-
-.form{
-  display: grid;
-  gap: var(--space-4);
-}
-
-label{
-  display: block;
-  font-size: .875rem;
-  color: var(--mc-muted);
-  margin-bottom: var(--space-2);
-}
-
-.input, select{
-  width: 100%;
-  height: var(--mc-input-h);
-  border-radius: var(--mc-radius-sm);
-  border: 1px solid var(--mc-border);
-  background: #0f0f15;
-  color: var(--mc-text);
-  padding: 0 var(--space-4);
-  outline: none;
-}
-.input::placeholder{ color: var(--mc-muted); }
-.input:focus, select:focus{
-  border-color: var(--mc-accent);
-  box-shadow: var(--mc-focus);
-}
-
-.row{ display: grid; gap: var(--space-4); }
-@media (min-width: 520px){
-  .row.two{ grid-template-columns: 1fr 1fr; }
-}
-
-.slots{
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: 1fr 1fr;
-}
-.slot{
-  position: relative;
-  border: 1px solid var(--mc-border);
-  border-radius: var(--mc-radius-sm);
-  background: #0f0f15;
-  padding: var(--space-4);
-  line-height: 1.2;
-}
-.slot[aria-disabled="true"]{ opacity: .45; }
-.slot input{ position: absolute; inset: 0; opacity: 0; }
-.slot.selected{ border-color: var(--mc-accent); box-shadow: var(--mc-focus); }
-
+/* Buttons */
 .btn{
-  height: var(--mc-btn-h);
-  border-radius: var(--mc-radius);
-  border: 0;
-  padding: 0 var(--space-5);
-  font-weight: 700;
-  letter-spacing: .2px;
-  transition: transform .08s ease;
+  appearance:none;display:inline-block;width:100%;padding:12px 16px;border-radius:var(--r-sm);
+  border:1px solid var(--border);background:var(--surface2);color:var(--text);
+  font-weight:700;font-size:var(--fs-md);cursor:pointer;transition:transform .12s,background .2s,border-color .2s
 }
-.btn:active{ transform: translateY(1px); }
-.btn:disabled{ opacity: .5; cursor: not-allowed; }
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.btn-cta{background:var(--cta);color:var(--cta-contrast);border-color:var(--cta)}
+.btn-cta:hover{background:var(--cta-hover);border-color:var(--cta-hover)}
+.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
 
-.btn-cta{
-  background: var(--mc-accent);
-  color: #000;
+/* Slots */
+.slots{display:grid;gap:var(--sp-3)}
+.slot{
+  position:relative;display:grid;gap:2px;padding:var(--sp-4);
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-lg);
+  cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .12s
 }
-.btn-cta:hover{ background: var(--mc-accent-press); }
+.slot:hover{transform:translateY(-1px)}
+.slot input[type="radio"]{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer}
+.slot.selected{border-color:#fff;box-shadow:0 0 0 1px #fff inset}
+.slot[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
 
-.helper{
-  color: var(--mc-muted);
-  font-size: .85rem;
-  margin-top: var(--space-2);
-}
+/* Messages / QR */
+.msg{padding:12px 14px;border-radius:var(--r-sm);background:var(--surface2);border:1px solid var(--border);min-height:2.25rem}
+.msg.ok{background:rgba(255,255,255,.04);border-left:3px solid #9ca3af}
+.msg.err{background:rgba(255,90,95,.1);border-left:3px solid var(--error)}
+.qr{margin-top:var(--sp-4);background:var(--surface2);border:1px dashed var(--border);border-radius:var(--r-sm);padding:var(--sp-4);font-family:ui-monospace,monospace;white-space:pre-wrap}
 
-.msg{ margin-top: var(--space-4); font-size: .95rem; }
-.msg.ok{ color: var(--mc-accent); }
-.msg.err{ color: var(--mc-error); }
-
-.qr{
-  margin-top: var(--space-5);
-  padding: var(--space-4);
-  background: #0f0f15;
-  border: 1px dashed var(--mc-border);
-  border-radius: var(--mc-radius-sm);
-  font-family: var(--mc-mono);
-  word-break: break-all;
-}
-
-/* links y foco */
-a{ color: var(--mc-text); text-underline-offset: 3px; }
-a:focus-visible, .btn:focus-visible, .input:focus-visible, select:focus-visible{
-  outline: none; box-shadow: var(--mc-focus);
-}
+/* Accessibility niceties */
+[hidden]{display:none !important}

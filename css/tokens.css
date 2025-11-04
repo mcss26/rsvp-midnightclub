@@ -1,45 +1,15 @@
-/* MC — tokens (dark-glam, mobile-first) */
 :root{
-  /* colores base */
-  --mc-bg: #0b0b0f;            /* fondo */
-  --mc-surface: #121219;       /* tarjetas/inputs */
-  --mc-text: #e7e7ec;          /* texto principal */
-  --mc-muted: #9aa0a6;         /* texto secundario */
-  --mc-border: #1f1f2a;        /* bordes suaves */
+  color-scheme:dark;
+  --font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial;
+  --bg:#0b0b0c; --surface:#121214; --surface2:#1a1a1d; --border:#26262b;
+  --text:#e8e8ea; --muted:#b0b0b5;
+  --cta:#22c55e; --cta-hover:#16a34a; --cta-contrast:#0b0b0c;
+  --error:#ff5a5f; --focus:#ffffff;
 
-  /* acentos (verde solo en CTA) */
-  --mc-accent: #00ffa3;        /* CTA */
-  --mc-accent-press: #00d58a;  /* hover/press */
-  --mc-error: #ff4d4f;
-  --mc-warning: #ffb020;
-
-  /* tipografía */
-  --mc-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-  --mc-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-
-  /* radios y sombras */
-  --mc-radius: 14px;
-  --mc-radius-sm: 10px;
-  --mc-shadow: 0 10px 30px rgba(0,0,0,.35);
-
-  /* espaciado */
-  --space-1: .25rem;
-  --space-2: .5rem;
-  --space-3: .75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-
-  /* tamaños */
-  --mc-input-h: 48px;
-  --mc-btn-h: 52px;
-  --mc-maxw: 440px;
-
-  /* focus */
-  --mc-focus: 0 0 0 2px rgba(0,255,163,.6);
-}
-
-/* reduce motion */
-@media (prefers-reduced-motion: reduce){
-  * { animation: none !important; transition: none !important; }
+  --fs-xs:.75rem; --fs-sm:.875rem; --fs-md:1rem; --fs-lg:1.125rem; --fs-xl:1.25rem; --fs-2xl:1.5rem;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-6:24px; --sp-8:32px;
+  --r-sm:8px; --r-lg:16px;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+  --container:720px;
+  font-family:var(--font-sans);
 }

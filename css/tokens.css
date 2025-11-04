@@ -12,4 +12,31 @@
   --shadow:0 6px 24px rgba(0,0,0,.35);
   --container:720px;
   font-family:var(--font-sans);
+  /* SS26 — extensión de tokens (Temporada Roja) */
+:root{
+  /* Paleta SS26 */
+  --ss26-red:#FF0A1E;
+  --ss26-burdeos:#5A0F2E;
+  --ss26-blue:#2A1F8A;
+  --ss26-green:#CCFF00; /* ≤10% SOLO CTA */
+  --ss26-black:#0A0A0A;
+  --ss26-carbon:#0B0C0D;
+  --ss26-silver:#C9CED3;
+
+  /* Mapeo a tus tokens existentes */
+  --mc-bg: var(--ss26-black);
+  --mc-surface: linear-gradient(180deg, rgba(90,15,46,.18), rgba(10,10,10,.35));
+  --mc-text: var(--ss26-silver);
+  --mc-muted:#B2BAC0;
+  --mc-border: rgba(255,255,255,.12);
+
+  /* CTA verde (contraste negro) */
+  --mc-accent: var(--ss26-green);
+  --mc-accent-press: #B7E600;
+
+  /* Tipografías */
+  --mc-font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  --mc-head: "Outfit", var(--mc-font);
+}
+
 }
